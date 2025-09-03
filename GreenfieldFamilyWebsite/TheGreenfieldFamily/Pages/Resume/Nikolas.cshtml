@@ -5,10 +5,17 @@
 }
 
 <div class="">
-    <div>
-        <div class="d-flex flex-row gap-3">
-            <h1 class="border px-3 display-5 fw-bold my-2">Hi, I'm Nik</h1>
-            <div class="border px-3 d-flex flex-row align-items-center gap-2 my-2 align-self-end">
+    <div class="d-flex flex-column gap-1 my-3">
+        <div class="d-flex flex-column gap-2">
+            <h1 class="border px-2 m-0 p-0 align-self-start" style="font-size:4rem; font-weight:bold; font-family:'Roboto', sans-serif">
+                Hi, I'm Nik
+            </h1>
+            <h1 class="border px-2 m-0 p-0 align-self-start" style="font-size:4rem; font-weight:bold; font-family:'Roboto', sans-serif">
+                I'm a Software Engineer
+            </h1>
+        </div>
+        <div class="border px-2 m-0 d-flex flex-row align-items-center gap-5 align-self-start">
+            <div class="d-flex flex-row align-items-center gap-2">
                 <a href="https://www.linkedin.com/in/nikolas-greenfield/" target="_blank">
                     <i class="bi bi-linkedin fs-3"></i>
                 </a>
@@ -19,83 +26,156 @@
                     <i class="bi bi-facebook fs-3"></i>
                 </a>
             </div>
+            <div class="d-flex flex-row align-items-center">
+                <i class="bi bi-geo-alt fs-3"></i>
+                <h5 class="m-0 p-0"> Pensacola, Florida</h5>
+            </div>
+            <h5 class="m-0 p-0">NikolasGreenfield@gmail.com</h5>
         </div>
-
-        <p class="border px-3">
-            I am a software developer with hands-on experience in backend and full-stack roles, specializing in C#, .NET, and JavaScript.
-            Demonstrated success optimizing application performance and reducing load times through advanced coding techniques, including
-            multi-threading and test driven development. Proven track record in remote agile environments, contributing to high-quality,
-            scalable, consumer-facing software solutions. Brings a strong understanding of relational databases, version control, and
-            technical security fundamentals to deliver reliable user experiences.
-        </p>
     </div>
 
-    <hr class="m-0 mb-2" />
+    <div class="d-flex flex-row flex-wrap gap-3 mb-5">
+        <div class="p-3 d-flex flex-row align-items-center gap-1" style="border:solid 1px black; border-radius:30px;">
+            <h1 class="m-0 p-0" style="font-size:3rem; font-weight:bold; font-family:'Roboto', sans-serif">
+                3
+            </h1>
+            <h5 class="m-0 p-0">
+                Years development experience
+            </h5>
+        </div>
+        <div class="p-3 d-flex flex-row align-items-center gap-1" style="border:solid 1px black; border-radius:30px;">
+            <h1 class="m-0 p-0" style="font-size:3rem; font-weight:bold; font-family:'Roboto', sans-serif">
+                2
+            </h1>
+            <h5 class="m-0 p-0">
+                Years .Net experience
+            </h5>
+        </div>
+        <div class="p-3 d-flex flex-column justify-content-center" style="border:solid 1px black; border-radius:30px;">
+            <h5 class="m-0 p-0">
+                Secret Security Clearance
+            </h5>
+            <p class="m-0 p-0">
+                Inactive within 2 years
+            </p>
+        </div>
+        <div class="p-3 d-flex flex-column justify-content-center" style="border:solid 1px black; border-radius:30px;">
+            <h5 class="m-0 p-0">
+                Bachelor of Science in Computer Science
+            </h5>
+            <p class="m-0 p-0">
+                Virginia Tech class of 2023
+            </p>
+        </div>
+        <div class="d-flex flex-row align-items-center" style="border:solid 1px black; border-radius:30px;">
+            <div class="p-3">
+                <h5 class="m-0 p-0">
+                    CompTIA Security+ Certified
+                </h5>
+                <p class="m-0 p-0">
+                    (SY0-701) Earned 06/25
+                </p>
+            </div>
+            <img src="~/images/securityplus.png" width="100" height="100" />
+        </div>
+        <div class="p-3 d-flex flex-column justify-content-center" style="border:solid 1px black; border-radius:30px;">
+            <h5 class="m-0 p-0">
+                Remote Agile Experience
+            </h5>
+        </div>
+    </div>
 
     <div class="d-flex flex-column gap-2">
-        <h2 class="border px-3 align-self-start">My Experience</h2>
+        <h1 class="border px-3 align-self-start">
+            My Experience
+        </h1>
 
-        <div class="border px-3 align-self-start w-75">
-            <p>
-                3SI Security | Software Developer [Secret Clearance] October 2023 – July 2025
-            </p>
-            <p>Designed and developed mission-critical software solutions using the .NET Framework, 
-                WPF, C# (MVVM), and MS SQL Server within a federated, multi-service architecture. 
-                Optimized application performance by implementing multi-threading paradigms, which 
-                resulted in a greater than 60% reduction in video file creation times and a significant 
-                decrease in overall application load times. Maintained high standards for code quality and 
-                reliability through production-grade logging, robust version control with Git and Bitbucket, 
-                and field debugging and custom-written database analysis tools. Additionally, led the 
-                initiative to use unit testing and mocking and to create comprehensive project documentation 
-                and development guides.</p>
-            <form asp-page="/Resume">
-                <button class="">Learn more about my time at 3SI</button>
-            </form>
+        <div class="d-flex flex-row">
+            <div class="w-75 border px-3">
+                <h4>
+                    Software Developer [Secret Clearance] &commat; 3SI Security
+                </h4>
+                <div class="ml-2">
+                    <h5> October 2023 – July 2025</h5>
+                    <p>
+                        In this position, I began with no experience with C# and .Net, quickly applied and expanded my understanding of OOP and low level development, and become a critical member of the development team.
+                    </p>
+                    <p> Technologies: .Net Framework, WPF, C#, MVVM, MS SQL, SSMS, Loupe Logging, Visual Studio</p>
+                    <p> Achievements: </p>
+                    <ul>
+                        <li>
+                            Leveraged Multithreading and API functionality to reduce video file exporting by over 60%
+                        </li>
+                        <li>
+                            proposed and executed a plan to move our SQL queries in-house through a distributed service to decrease application loading times by 90%.
+                        </li>
+                        <li>
+                            Investigated a production bug using our production logging, determined the vulnerability in our code, developed a custom field tool to evaluate and remidy a fault in our database structure.
+                        </li>
+                    </ul>
+                    <form asp-page="/Resume">
+                        <button class="">Learn more about my time at 3SI</button>
+                    </form>
+                </div>
+            </div>
+            <div class="w-25">
+                This is where the icons will go.
+            </div>
         </div>
-        <div class="border px-3 align-self-end w-75">
-            <p>
-                Parsons Corporation | Software Engineering Internship May 2023 – September 2023
-            </p>
-            <p>
-                Developed data visualization dashboards, SharePoint list storage solutions, and PDF generators 
-                to provide creation, completion, and final storage of user applications utilizing Power Apps, 
-                Power Automate, OneDrive, and SharePoint. Collaborated in daily stand-ups, client meetings, 
-                sprint retrospectives, and planning meetings in a remote Agile/Scrum environment to ensure 
-                high-quality software delivery. Utilized cooperative development tools such as Jira iteration boards, 
-                Azure Dev-Ops, Slack communication, and Confluence documentation to ensure effective communication 
-                and coordinated software development practices.
-            </p>
-            <form asp-page="/Resume">
-                <button class="">Learn more about my time at Parsons</button>
-            </form>
+        <div class="d-flex flex-row">
+            <div class="w-25">
+                this is where the mini site will go.
+            </div>
+            <div class="border px-3 w-75 d-flex flex-column align-items-end">
+                <h4 class="text-end">
+                    This website!
+                </h4>
+                <p class="text-end">
+                    This website was built using ASP.NET Core with Razor Pages, Bootstrap, and custom CSS. I am hosting it locally,
+                    and I am using Cloudflare for DNS and CDN services. I built this site to showcase my skills and projects, as well as to provide
+                    my family with a centralized location for our history and family tree.
+                    The source code is available on <a href="https://github.com/NikolasGreenfield/the-greenfield-family" target="_blank">my GitHub</a>.
+                </p>
+                <form asp-page="/Resume">
+                    <button class=""> See how I made this site! </button>
+                </form>
+            </div>
         </div>
-        <div class="border px-3 align-self-start w-75">
-            <p>
-                This website!
-            </p>
-            <p>
-                This website was built using ASP.NET Core with Razor Pages, Bootstrap, and custom CSS. I am hosting it locally,
-                and I am using Cloudflare for DNS and CDN services. I built this site to showcase my skills and projects, as well as to provide
-                my family with a centralized location for our history and family tree.
-                The source code is available on <a href="https://github.com/NikolasGreenfield/the-greenfield-family" target="_blank">my GitHub</a>.
-            </p>
-            <form asp-page="/Resume">
-                <button class="">See how I made this site!</button>
-            </form>
+        <div class="d-flex flex-row">
+            <div class="border px-3 w-75">
+                <h4>
+                    Software Engineering Internship &commat; Parsons Corporation
+                </h4>
+                <div class="ml-2">
+                    <h5> May 2023 – September 2023 </h5>
+                    <p>
+                        I learned the Microsoft Cloud Power Platform and contributed to a Microsoft Cloud Application in a remote Agile development environment.
+                        I Developed data visualization dashboards, SharePoint list storage solutions, and pdf generators to provide creation, completion, and
+                        final storage of user applications.
+                    </p>
+                    <p> Technologies: Microsoft Power Apps, Power Automate, Power BI, and Sharepoint. </p>
+                    <p> Tools: Jira iteration boards, Azure Dev-Ops, Slack communication, Confluence documentation.</p>
+                </div>
+            </div>
+            <div class="d-flex flex-row w-25 justify-content-evenly">
+                <div class="d-flex flex-column justify-content-evenly">
+                    <img src="~/images/PowerPlatform_scalable.svg" width="100" height="100" />
+                    <img src="~/images/PowerAutomate_scalable.svg" width="100" height="100" />
+                </div>
+                <div class="d-flex flex-column justify-content-evenly">
+                    <img src="~/images/PowerApps_scalable.svg" width="100" height="100" />
+                    <img src="~/images/PowerBI_scalable.svg" width="100" height="100" />
+                </div>
+            </div>
         </div>
-        <div class="align-self-end d-flex flex-row gap-3 w-75 justify-content-end">
-            <img src="~/images/securityplus.png" width="100" height="100" />
-            <p class="border px-3">
-                CompTIA Security+ (SY0-701). Earned: June 2025
-            </p>
-        </div>
-        <div class="border px-3 align-self-start w-75">
-            <p>
-                B.S. Computer Science, GPA: 3.66/4.0 Graduated: May 2023
-            </p>
-            <form asp-page="/Resume">
-                <button class="">Learn more about my time at Virginia Tech</button>
-            </form>
+        <div class="d-flex flex-row justify-content-between">
+            <div class="w-25">
+                This is where my leetcode calender will go.
+            </div>
+            <div class="border px-3 w-75 d-flex flex-column align-items-end">
+                <h4 class="text-end">Leetcode</h4>
+                <p class="text-end">I keep my problem solving skills sharp by doing leetcode every day.</p>
+            </div>
         </div>
     </div>
 </div>
