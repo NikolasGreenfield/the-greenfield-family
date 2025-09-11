@@ -91,9 +91,9 @@
         </div>
     </div>
 
-    <hr class="mb-3"/>
+    <hr class="mb-3" />
 
-    <div class="d-flex flex-column gap-2">
+    <div class="d-flex flex-column gap-4">
         <h1 class="border px-3 align-self-start">
             My Experience
         </h1>
@@ -130,20 +130,37 @@
                 This is where the icons will go.
             </div>
         </div>
-        <div class="d-flex flex-row">
-            <div class="w-25">
-                this is where the mini site will go.
+        <div class="d-flex flex-row gap-1">
+            <div class="border" style="width:40vw; height: 40vh;">
+                <iframe id="mini-site" style="width:100vw; height: 100vh; transform:scale(0.39); transform-origin:0 0;" src="/" scrolling="no"></iframe>
             </div>
-            <div class="border px-3 w-75 d-flex flex-column align-items-end">
-                <h4 class="text-end">
+            <div class="border px-3 d-flex flex-column">
+                <h4>
                     This website!
                 </h4>
-                <p class="text-end">
-                    This website was built using ASP.NET Core with Razor Pages, Bootstrap, and custom CSS. I am hosting it locally,
-                    and I am using Cloudflare for DNS and CDN services. I built this site to showcase my skills and projects, as well as to provide
+                <p>
+                    I built this site to showcase my skills and projects, as well as to provide
                     my family with a centralized location for our history and family tree.
                     The source code is available on <a href="https://github.com/NikolasGreenfield/the-greenfield-family" target="_blank">my GitHub</a>.
+                    This website was built using:
                 </p>
+                <ul>
+                    <li>
+                        ASP.NET Core
+                    </li>
+                    <li>
+                        Razor Pages
+                    </li>
+                    <li>
+                        Bootstrap
+                    </li>
+                    <li>
+                        local hosting
+                    </li>
+                    <li>
+                        Cloudflare for DNS and CDN services
+                    </li>
+                </ul>
                 <form asp-page="/Resume">
                     <button class=""> See how I made this site! </button>
                 </form>
@@ -187,3 +204,19 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        console.log("This is inline JS for the Index page.");
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.getElementById('mini-site');
+
+            iframe.addEventListener('load', () => {
+                window.addEventListener('scroll', () => {
+                    const parentScroll = window.scrollY || document.documentElement.scrollTop;
+                    iframe.contentWindow.scrollTo(0, parentScroll);
+                });
+            });
+        });
+    </script>
+}
