@@ -1,0 +1,7 @@
+﻿.scroll-item {
+    min-height: 34%;
+    max-height: 34%;
+    border: solid 1px black;
+    border-radius: 30px;
+    scroll-snap-align: center;
+}

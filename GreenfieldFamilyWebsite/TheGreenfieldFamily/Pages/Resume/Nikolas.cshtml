@@ -1,4 +1,4 @@
-@page
+﻿@page
 @model TheGreenfieldFamily.Pages.Resume.NikolasModel
 @{
     ViewData["Title"] = "Nikolas";
@@ -101,36 +101,88 @@
             My Experience
         </h1>
 
-        <div class="d-flex flex-row">
-            <div class="w-75 border px-3">
-                <h4>
-                    Software Developer [Secret Clearance] &commat; 3SI Security
-                </h4>
-                <div class="ml-2">
-                    <h5> October 2023 – July 2025</h5>
-                    <p>
-                        In this position, I began with no experience with C# and .Net, quickly applied and expanded my understanding of OOP and low level development, and become a critical member of the development team.
+        <div class="d-flex flex-column border px-3" style="max-height: 25vh; height: 25vh;">
+            <h4>
+                Software Developer [Secret Clearance] &commat; 3SI Security
+            </h4>
+            <h5 class="ml-2">
+                October 2023 – July 2025
+            </h5>
+            <p>
+                In this position, I began with no experience with C# and .Net, quickly applied and expanded my understanding of OOP and low level development, and become a critical member of the development team.
+            </p>
+            <div class="h-75 d-flex flex-row justify-content-between align-items-center">
+                <div class="w-25 p-2 d-flex flex-row align-items-center gap-1" style="border:solid 1px black; border-radius:30px;">
+                    <h3 class="m-0 p-0" style="font-size:3rem; font-weight:bold; font-family:'Roboto', sans-serif">
+                        3
+                    </h3>
+                    <p class="m-0 p-0">
+                        Years development experience
                     </p>
-                    <p> Technologies: .Net Framework, WPF, C#, MVVM, MS SQL, SSMS, Loupe Logging, Visual Studio</p>
-                    <p> Achievements: </p>
-                    <ul>
-                        <li>
-                            Leveraged Multithreading and API functionality to reduce video file exporting by over 60%
-                        </li>
-                        <li>
-                            proposed and executed a plan to move our SQL queries in-house through a distributed service to decrease application loading times by 90%.
-                        </li>
-                        <li>
-                            Investigated a production bug using our production logging, determined the vulnerability in our code, developed a custom field tool to evaluate and remidy a fault in our database structure.
-                        </li>
-                    </ul>
-                    <form asp-page="/Resume">
-                        <button class="">Learn more about my time at 3SI</button>
-                    </form>
                 </div>
-            </div>
-            <div class="w-25">
-                This is where the icons will go.
+                <svg>
+                    <line y2="24.704"
+                          x1="1.266"
+                          x2="125.3"
+                          stroke="#000000"
+                          stroke-miterlimit="10"
+                          y1="24.704"
+                          stroke-width="6" />
+                    <polygon points="124.4 6.284 124.4 44.606 148.35 23.69" />
+                </svg>
+
+                <div class="border" style="height: 100%;">
+                    <div class="h-100" style="position: relative;">
+                        <div class="d-flex flex-column gap-2 h-100 w-50" style="overflow-y: scroll; scrollbar-width: none; scroll-snap-type: y mandatory;">
+                            <div style="min-height: 33%;"></div>
+                            <div class="p-2 d-flex flex-row align-items-center gap-1 scroll-item">
+                                <h3 class="m-0 p-0 text-center" style="font-weight:bold; font-family:'Roboto', sans-serif; min-width: 30%; max-width: 30%;">
+                                    60% reduction
+                                </h3>
+                                <p class="m-0 p-0">
+                                    in video export times leveraging multithreading and API features.
+                                </p>
+                            </div>
+                            <div class="p-2 d-flex flex-row align-items-center gap-1 scroll-item">
+                                <h3 class="m-0 p-0 text-center" style="font-weight:bold; font-family:'Roboto', sans-serif; min-width: 30%; max-width: 30%;">
+                                    90% reduction
+                                </h3>
+                                <p class="m-0 p-0">
+                                    in application load times by expanding authentication and authorization to an in-house federated service.
+                                </p>
+                            </div>
+                            <div class="p-2 d-flex flex-row align-items-center gap-1 scroll-item">
+                                <h3 class="m-0 p-0 text-center" style="font-weight:bold; font-family:'Roboto', sans-serif; min-width: 30%; max-width: 30%;">
+                                    2 years
+                                </h3>
+                                <p class="m-0 p-0">
+                                    of production issue investigation and custom field sql analysis and resolution tools.
+                                </p>
+                            </div>
+                            <div class="p-2 d-flex flex-row align-items-center gap-1 scroll-item">
+                                <h3 class="m-0 p-0 text-center" style="font-weight:bold; font-family:'Roboto', sans-serif; min-width: 30%; max-width: 30%;">
+                                    Analysed and remidied
+                                </h3>
+                                <p class="m-0 p-0">
+                                    Multiple potential memory leaks using Visual Studio memory analysis tools and data rules.
+                                </p>
+                            </div>
+                            <div class="p-2 d-flex flex-row align-items-center gap-1 scroll-item">
+                                <h3 class="m-0 p-0 text-center" style="font-weight:bold; font-family:'Roboto', sans-serif; min-width: 30%; max-width: 30%;">
+                                    Led my team
+                                </h3>
+                                <p class="m-0 p-0">
+                                    to write and maintain comprehensive functionality and development documentation to ensure our software performs expectantly and is easy to adapt to for new developers.
+                                </p>
+                            </div>
+                            <div style="min-height: 33%;"></div>
+                        </div>
+                        <div class="w-100 h-50" style="position:absolute; pointer-events: none; top: 0;
+        background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));"></div>
+                        <div class="w-100 h-50" style="position:absolute; pointer-events: none; bottom: 0;
+        background: linear-gradient(to top, white, rgba(255, 255, 255, 0));"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="d-flex flex-row gap-1">
