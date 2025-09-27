@@ -1,4 +1,14 @@
-﻿.scroll-item {
+﻿.experience-bubble {
+    border: solid 1px black;
+    border-radius: 30px;
+    padding: 0.5rem;
+}
+
+.text-block {
+    padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+}
+
+.scroll-item {
     min-height: 34%;
     max-height: 34%;
     border: solid 1px black;
