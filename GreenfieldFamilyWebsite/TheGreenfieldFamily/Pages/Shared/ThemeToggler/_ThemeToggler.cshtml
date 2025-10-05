@@ -16,26 +16,42 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 </label>
 
 <script>
+    function changeTheme(darkTheme){
+        if (darkTheme) {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+        toggleSwitch.checked = darkTheme;
+
+        themeEvent = new CustomEvent("themeChangeByButton", {
+            detail: {
+                darkTheme: darkTheme
+            }
+        });
+        document.dispatchEvent(themeEvent);
+    }
+
     // Set theme based on save local storage.
     const currentTheme = localStorage.getItem('theme');
     const toggleSwitch = document.querySelector('.switch input');
     if (currentTheme) {
-        document.documentElement.setAttribute('data-bs-theme', currentTheme);
-        toggleSwitch.checked = currentTheme === 'dark';
+        changeTheme(currentTheme === 'dark');
+    } else {
+        changeTheme(true);
     }
 
     // Set listener to change theme on button press.
     document.addEventListener('DOMContentLoaded', () => {
         toggleSwitch.addEventListener('change', (e)=>{
-            if (e.target.checked) {
-                document.documentElement.setAttribute('data-bs-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                console.log('Switched to dark theme');
-            } else {
-                document.documentElement.setAttribute('data-bs-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                console.log('Switched to light theme');
-            }
+            changeTheme(e.target.checked);
         });
+    });
+
+    // Set listener to change theme when notified to from another part of the site.
+    document.addEventListener("themeChangeByLogic", (e) => {
+        changeTheme(e.detail.darkTheme);
     });
 </script>

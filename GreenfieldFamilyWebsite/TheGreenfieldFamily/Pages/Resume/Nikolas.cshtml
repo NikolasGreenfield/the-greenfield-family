@@ -249,45 +249,124 @@
 
 @section Scripts {
     <script>
-        // Set listener to automatically scroll the 3SI scroll box.
-        const scrollInvervalSeconds = 5;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const scrollList = document.getElementById('3si-scrolling-list');
-            const items = scrollList.querySelectorAll('.scroll-item');
-
-            setInterval(()=>{
-                for(let i = 0; i < items.length; i++){
-                    let item = items[i].getBoundingClientRect();
-                    let scrollingBox = scrollList.getBoundingClientRect();
-                    let distanceBetweenCenters = Math.abs((item.top + item.height / 2) - (scrollingBox.top + scrollingBox.height / 2));
-
-                    if (distanceBetweenCenters < 10){
-                        let nextI = (i + 1) % items.length;
-                        let newScrollY = items[nextI].offsetTop - scrollList.offsetTop - items[nextI].clientHeight;
-                        scrollList.scroll(
-                            {
-                                top: newScrollY,
-                                behavior: 'smooth'
-                            }
-                        );
-                        break;
-                    }
-                }
-            }, scrollInvervalSeconds * 1000);
-        })
+        window.AppState = {
+            pageScroll: 0,
+            sIScroll: 0,
+            darkTheme: null,
+        };
     </script>
-    <script>
-        // Set listener to scroll the mini website with the current site.
-        document.addEventListener('DOMContentLoaded', () => {
-            const iframe = document.getElementById('mini-site');
 
-            iframe.addEventListener('load', () => {
-                window.addEventListener('scroll', () => {
-                    const parentScroll = window.scrollY || document.documentElement.scrollTop;
-                    iframe.contentWindow.scrollTo(0, parentScroll);
-                });
+    <!-- Ensure saving and updating state across the page and mini-pages. -->
+    <script>
+        // Sends a message to the parent and child iframe when the scroll position or theme changes. To prevent looping in the notifications in both directions, 
+        // we add an upward property to ensure the notifications are not sent in the same direction is was notified.
+        function sendMessage(type, value, child, upward = true, downward = true){
+            if (window.parent != window && upward){
+                window.parent.postMessage({
+                    type: type,
+                    value: value,
+                    upward: true
+                }, "*");
+            }
+            if (child != null && downward){
+                child.postMessage({
+                    type: type,
+                    value: value,
+                    upward: false
+                }, "*");
+            }
+        }
+
+        // Theming is done on the layout level, so we notify it of changes for them to take affect
+        function updateTheme(darkTheme){
+            window.AppState.darkTheme = darkTheme;
+            themeEvent = new CustomEvent("themeChangeByLogic", {
+                detail: {
+                    darkTheme: darkTheme
+                }
+            });
+            document.dispatchEvent(themeEvent);
+        }
+
+        document.addEventListener('DOMContentLoaded', () =>{
+            const iframe = document.getElementById('mini-site');
+            const scrollingList = document.getElementById('3si-scrolling-list');
+
+            // Listen to changes in this window, sending messaegs to its parent and child window on change.
+            window.addEventListener('scroll', () => {
+                if (iframe.contentWindow == null) return;
+
+                const parentScroll = window.scrollY || document.documentElement.scrollTop;
+                iframe.contentWindow.scrollTo(0, parentScroll);
+            });
+
+            scrollingList.addEventListener('scroll', (e) => {
+                if (window.AppState.sIScroll === e.target.scrollTop) return;
+
+                window.AppState.sIScroll = e.target.scrollTop;
+
+                sendMessage("3SIScrollChange", e.target.scrollTop, iframe.contentWindow);
+            });
+
+            document.addEventListener('themeChangeByButton', (e) => {
+                if (window.AppState.darkTheme === e.detail.darkTheme) return;
+
+                window.AppState.darkTheme = e.detail.darkTheme;
+
+                sendMessage("themeChange", e.detail.darkTheme, iframe.contentWindow);
+            });
+
+
+            // Listen to changes from parent and child(mini page) pages, and update this window.
+            window.addEventListener('message', (e) => {
+                switch (e.data.type){
+                    case "3SIScrollChange":
+                        window.AppState.sIScroll = e.data.value;
+
+                        scrollingList.scrollTo(0, e.data.value);
+
+                        sendMessage("3SIScrollChange", e.data.value, iframe.contentWindow, e.data.upward, !e.data.upward);
+                        break;
+                    case "themeChange":
+                        updateTheme(e.data.value);
+                        sendMessage("themeChange", e.data.value, iframe.contentWindow, e.data.upward, !e.data.upward);
+                        break;
+
+                }
             });
         });
+    </script>
+
+    <!-- Automatically scroll the topmost parent page's 3SI scroll box. -->
+    <script>
+        const scrollInvervalSeconds = 5;
+
+        if (window.parent === window){
+            document.addEventListener('DOMContentLoaded', () => {
+                const scrollList = document.getElementById('3si-scrolling-list');
+                const items = scrollList.querySelectorAll('.scroll-item');
+
+                setInterval(()=>{
+                    for(let i = 0; i < items.length; i++){
+                        let item = items[i].getBoundingClientRect();
+                        let scrollingBox = scrollList.getBoundingClientRect();
+                        let distanceBetweenCenters = Math.abs((item.top + item.height / 2) - (scrollingBox.top + scrollingBox.height / 2));
+
+                        if (distanceBetweenCenters < 10){
+                            let nextI = (i + 1) % items.length;
+                            let newScrollY = items[nextI].offsetTop - scrollList.offsetTop - items[nextI].clientHeight;
+                            scrollList.scroll(
+                                {
+                                    top: newScrollY,
+                                    behavior: 'smooth'
+                                }
+                            );
+                            break;
+                        }
+                    }
+                }, scrollInvervalSeconds * 1000);
+            })
+        }
+
     </script>
 }
