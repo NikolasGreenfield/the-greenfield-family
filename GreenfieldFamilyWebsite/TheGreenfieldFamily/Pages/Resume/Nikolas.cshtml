@@ -250,7 +250,6 @@
 @section Scripts {
     <script>
         window.AppState = {
-            pageScroll: 0,
             sIScroll: 0,
             darkTheme: null,
         };
@@ -292,14 +291,21 @@
             const iframe = document.getElementById('mini-site');
             const scrollingList = document.getElementById('3si-scrolling-list');
 
-            // Listen to changes in this window, sending messaegs to its parent and child window on change.
+            // Update the page scroll of the child site directly on change because the mini site is not scrollable.
+            let isUpdatingScroll = false;
+            const miniSiteScrollRate = 1000 / 15;
             window.addEventListener('scroll', () => {
                 if (iframe.contentWindow == null) return;
 
-                const parentScroll = window.scrollY || document.documentElement.scrollTop;
-                iframe.contentWindow.scrollTo(0, parentScroll);
+                if (!isUpdatingScroll){
+                    isUpdatingScroll = true;
+                    iframe.contentWindow.document.documentElement.scrollTop = window.scrollY;
+
+                    setTimeout(() => isUpdatingScroll = false, miniSiteScrollRate);
+                }
             });
 
+            // Listen to changes in this window, sending messaegs to its parent and child window on change.
             scrollingList.addEventListener('scroll', (e) => {
                 if (window.AppState.sIScroll === e.target.scrollTop) return;
 
@@ -323,7 +329,7 @@
                     case "3SIScrollChange":
                         window.AppState.sIScroll = e.data.value;
 
-                        scrollingList.scrollTo(0, e.data.value);
+                        scrollingList.scrollTop = e.data.value;
 
                         sendMessage("3SIScrollChange", e.data.value, iframe.contentWindow, e.data.upward, !e.data.upward);
                         break;
