@@ -1,4 +1,5 @@
 @page
+@using System.Text.Json
 @model TheGreenfieldFamily.Pages.Resume.NikolasModel
 @{
     ViewData["Title"] = "Nikolas";
@@ -257,6 +258,8 @@
 
     <!-- Ensure saving and updating state across the page and mini-pages. -->
     <script>
+        const trustedOrigin = @Html.Raw(JsonSerializer.Serialize(Model.TrustedMessageOrigin));
+
         // Sends a message to the parent and child iframe when the scroll position or theme changes. To prevent looping in the notifications in both directions, 
         // we add an upward property to ensure the notifications are not sent in the same direction is was notified.
         function sendMessage(type, value, child, upward = true, downward = true){
@@ -265,14 +268,14 @@
                     type: type,
                     value: value,
                     upward: true
-                }, "*");
+                }, trustedOrigin);
             }
             if (child != null && downward){
                 child.postMessage({
                     type: type,
                     value: value,
                     upward: false
-                }, "*");
+                }, trustedOrigin);
             }
         }
 
@@ -325,6 +328,8 @@
 
             // Listen to changes from parent and child(mini page) pages, and update this window.
             window.addEventListener('message', (e) => {
+                if (e.origin !== trustedOrigin) return;
+
                 switch (e.data.type){
                     case "3SIScrollChange":
                         window.AppState.sIScroll = e.data.value;
