@@ -2,6 +2,16 @@
     background-color: var(--bs-body-bg);
 }
 
+.page-header {
+    border-radius: 0 15px 15px 0;
+    padding: 0rem 0.5rem;
+}
+
+.section-header {
+    border-radius: 15px 15px 0 0;
+    padding: 0rem 0.5rem;
+}
+
 .experience-bubble {
     border-radius: 15px;
     padding: 0rem 0.5rem;
