@@ -3,9 +3,8 @@
 }
 
 .experience-bubble {
-    border: solid 1px black;
-    border-radius: 30px;
-    padding: 0.5rem;
+    border-radius: 15px;
+    padding: 0rem 0.5rem;
 }
 
 .text-block {
