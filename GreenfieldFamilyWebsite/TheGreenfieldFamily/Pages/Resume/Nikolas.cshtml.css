@@ -1,4 +1,8 @@
-﻿.experience-bubble {
+﻿.page-item {
+    background-color: var(--bs-body-bg);
+}
+
+.experience-bubble {
     border: solid 1px black;
     border-radius: 30px;
     padding: 0.5rem;
