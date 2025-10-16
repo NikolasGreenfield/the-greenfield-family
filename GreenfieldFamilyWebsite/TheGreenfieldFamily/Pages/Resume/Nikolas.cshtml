@@ -19,7 +19,7 @@
     </div>
 
     <div class="d-flex flex-row flex-wrap gap-2 mb-5">
-        <div class="page-item experience-bubble border d-flex flex-row align-items-center gap-1">
+        <div class="page-item experience-badge d-flex flex-row align-items-center gap-1">
             <h3 class="m-0 p-0" style="font-size:3rem; font-weight:bold; font-family:'Roboto', sans-serif">
                 3
             </h3>
@@ -27,7 +27,7 @@
                 Years development experience
             </p>
         </div>
-        <div class="page-item experience-bubble border d-flex flex-row align-items-center gap-1">
+        <div class="page-item experience-badge d-flex flex-row align-items-center gap-1">
             <h3 class="m-0 p-0" style="font-size:3rem; font-weight:bold; font-family:'Roboto', sans-serif">
                 2
             </h3>
@@ -35,7 +35,7 @@
                 Years .Net experience
             </p>
         </div>
-        <div class="page-item experience-bubble border d-flex flex-column justify-content-center">
+        <div class="page-item experience-badge d-flex flex-column justify-content-center">
             <p class="m-0 p-0">
                 Secret Security Clearance
             </p>
@@ -43,7 +43,7 @@
                 Inactive within 2 years
             </small>
         </div>
-        <div class="page-item experience-bubble border d-flex flex-column justify-content-center">
+        <div class="page-item experience-badge d-flex flex-column justify-content-center">
             <p class="m-0 p-0">
                 Bachelor in Computer Science
             </p>
@@ -51,7 +51,7 @@
                 Virginia Tech class of 2023
             </small>
         </div>
-        <div class="page-item experience-bubble border d-flex flex-column justify-content-center">
+        <div class="page-item experience-badge d-flex flex-column justify-content-center">
             <p class="m-0 p-0">
                 CompTIA Security+ Certified
             </p>
@@ -59,7 +59,7 @@
                 (SY0-701) Earned 06/25
             </small>
         </div>
-        <div class="page-item experience-bubble border d-flex flex-column justify-content-center">
+        <div class="page-item experience-badge d-flex flex-column justify-content-center">
             <p class="m-0 p-0">
                 Remote Agile
             </p>
@@ -84,7 +84,7 @@
                 In this position, I began with no experience with C# and .Net, quickly applied and expanded my understanding of OOP and low level development, and become a critical member of the development team.
             </p>
             <div class="d-flex flex-row justify-content-between align-items-center" style="min-height: 15rem; max-height: 25rem; height: 30vh;">
-                <div class="experience-bubble border w-25 p-2 d-flex flex-column align-items-center gap-1">
+                <div class="border w-25 p-2 d-flex flex-column align-items-center gap-1" style="border-radius: 15px;">
                     <h3 class="m-0 p-0 text-center" style="font-weight:bold; font-family:'Roboto', sans-serif">
                         No .Net Experience
                     </h3>
@@ -207,13 +207,22 @@
                 </div>
                 <div class="ml-2 w-75">
                     <p>
-                        Learned the Microsoft Cloud Power Platform developing data visualization dashboards, SharePoint list storage solutions, and pdf generators.
+                        Developed a Microsoft Cloud Application in a remote Agile development environment implimenting data visualization dashboards, SharePoint list storage solutions, and pdf generators.
                     </p>
-                    <p>
-                        Developed a Microsoft Cloud Application in a remote Agile development environment.
-                    </p>
-                    <p> Technologies: Microsoft Power Apps, Power Automate, Power BI, and Sharepoint. </p>
-                    <p> Tools: Jira iteration boards, Azure Dev-Ops, Slack communication, Confluence documentation.</p>
+                    <div class="d-flex flex-row flex-wrap gap-2">
+                        <p>Technologies:</p>
+                        <p class="tech-badge"> Microsoft Power Apps </p>
+                        <p class="tech-badge"> Power Automate </p>
+                        <p class="tech-badge"> Power BI </p>
+                        <p class="tech-badge"> Sharepoint </p>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap gap-2">
+                        <p>Tools:</p>
+                        <p class="tech-badge"> Jira Iteration Boards </p>
+                        <p class="tech-badge"> Azure Dev-Ops </p>
+                        <p class="tech-badge"> Slack </p>
+                        <p class="tech-badge"> Confluence </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -233,7 +242,7 @@
     <script>
         const trustedOrigin = @Html.Raw(JsonSerializer.Serialize(Model.TrustedMessageOrigin));
 
-        // Sends a message to the parent and child iframe when the scroll position or theme changes. To prevent looping in the notifications in both directions, 
+        // Sends a message to the parent and child iframe when the scroll position or theme changes. To prevent looping in the notifications in both directions,
         // we add an upward property to ensure the notifications are not sent in the same direction is was notified.
         function sendMessage(type, value, child, upward = true, downward = true){
             if (window.parent != window && upward){

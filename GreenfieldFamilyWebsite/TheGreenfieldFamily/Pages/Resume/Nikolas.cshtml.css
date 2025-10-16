@@ -14,14 +14,19 @@
 .page-header {
     border-radius: 0 15px 15px 0;
     padding: 0rem 0.5rem;
+    color: var(--bs-emphasis-color);
 }
 
 .section-header {
     border-radius: 15px 15px 0 0;
     padding: 0rem 0.5rem;
+    color: var(--bs-emphasis-color);
 }
 
-.experience-bubble {
+.experience-badge {
+    background-color: var(--bs-secondary-bg);
+    color: var(--bs-secondary-color);
+    border: solid 1px var(--bs-border-color);
     border-radius: 15px;
     padding: 0rem 0.5rem;
 }
@@ -36,4 +41,12 @@
     border: solid 1px black;
     border-radius: 30px;
     scroll-snap-align: center;
+}
+
+.tech-badge {
+    background-color: var(--bs-secondary-bg);
+    color: var(--bs-body-color);
+    border: solid 1px var(--bs-border-color);
+    border-radius: 15px;
+    padding: 0rem 0.5rem;
 }
