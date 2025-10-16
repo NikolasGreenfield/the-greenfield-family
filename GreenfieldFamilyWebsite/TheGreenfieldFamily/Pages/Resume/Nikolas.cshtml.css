@@ -1,4 +1,13 @@
-﻿.page-item {
+﻿@media (min-width: 768px) {
+    .w-md-250px {
+        width: 250px !important;
+    }
+    .h-md-250px {
+        height: 250px !important;
+    }
+}
+
+.page-item {
     background-color: var(--bs-body-bg);
 }
 
