@@ -1,10 +1,27 @@
-﻿@media (min-width: 768px) {
+@media (min-width: 768px) {
     .w-md-250px {
         width: 250px !important;
     }
     .h-md-250px {
         height: 250px !important;
     }
+}
+
+@media (min-width: 2000px) {
+    .w-xxxl-100 {
+        width: 100% !important;
+    }
+    .justify-content-xxxl-center {
+        justify-content: center !important;
+    }
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-60 {
+    width: 60%;
 }
 
 .page-item {
@@ -49,4 +66,5 @@
     border: solid 1px var(--bs-border-color);
     border-radius: 15px;
     padding: 0rem 0.5rem;
+    margin: 0;
 }
