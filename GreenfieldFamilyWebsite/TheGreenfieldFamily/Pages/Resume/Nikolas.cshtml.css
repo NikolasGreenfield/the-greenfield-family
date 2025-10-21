@@ -42,7 +42,7 @@
 
 .experience-badge {
     background-color: var(--bs-secondary-bg);
-    color: var(--bs-secondary-color);
+    color: var(--bs-body-color);
     border: solid 1px var(--bs-border-color);
     border-radius: 15px;
     padding: 0rem 0.5rem;
