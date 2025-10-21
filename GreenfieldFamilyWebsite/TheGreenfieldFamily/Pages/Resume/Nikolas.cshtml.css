@@ -52,12 +52,35 @@
     padding: 0.5rem 0.5rem 0.25rem 0.5rem;
 }
 
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.carousel {
+    display: flex;
+    overflow-x: hidden;
+
+    &:hover .carousel-group {
+        animation-play-state: paused;
+    }
+}
+
+.carousel-group {
+    gap: 2rem;
+    padding-right: 2rem;
+    will-change: transform;
+    animation: scrolling 30s linear infinite;
+}
+
 .scroll-item {
-    min-height: 34%;
-    max-height: 34%;
-    border: solid 1px black;
-    border-radius: 30px;
-    scroll-snap-align: center;
+    width: 20rem;
+    height: 15rem;
 }
 
 .tech-badge {
