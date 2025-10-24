@@ -1,3 +1,15 @@
+/* Bootstrap Small */
+@media (min-width: 576px) {
+    #title {
+        width: fit-content !important;
+    }
+    #sub-title {
+        font-size: 5rem !important;
+        width: fit-content !important;
+    }
+}
+
+/* Bootstrap Medium */
 @media (min-width: 768px) {
     .w-md-250px {
         width: 250px !important;
@@ -7,6 +19,7 @@
     }
 }
 
+/* Custom XXXL */
 @media (min-width: 2000px) {
     .w-xxxl-100 {
         width: 100% !important;
@@ -24,17 +37,33 @@
     width: 60%;
 }
 
+#title {
+    font-size: 5rem;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif
+}
+
+#sub-title {
+    font-size: 3rem;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif
+}
+
 .page-item {
     background-color: var(--bs-body-bg);
 }
 
 .page-header {
+    border: solid 1px var(--bs-border-color);
     border-radius: 0 15px 15px 0;
     padding: 0rem 0.5rem;
     color: var(--bs-emphasis-color);
 }
 
 .section-header {
+    border: solid 1px var(--bs-border-color);
     border-radius: 15px 15px 0 0;
     padding: 0rem 0.5rem;
     color: var(--bs-emphasis-color);
