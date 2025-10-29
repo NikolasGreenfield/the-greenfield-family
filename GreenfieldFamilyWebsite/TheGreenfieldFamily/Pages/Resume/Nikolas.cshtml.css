@@ -53,6 +53,7 @@
 
 .page-item {
     background-color: var(--bs-body-bg);
+    border: solid 1px var(--bs-border-color);
 }
 
 .page-header {
