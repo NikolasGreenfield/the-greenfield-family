@@ -3,6 +3,7 @@
     #title {
         width: fit-content !important;
     }
+
     #sub-title {
         font-size: 5rem !important;
         width: fit-content !important;
@@ -14,6 +15,7 @@
     .w-md-250px {
         width: 250px !important;
     }
+
     .h-md-250px {
         height: 250px !important;
     }
@@ -24,6 +26,7 @@
     .w-xxxl-100 {
         width: 100% !important;
     }
+
     .justify-content-xxxl-center {
         justify-content: center !important;
     }
@@ -95,10 +98,10 @@
 .carousel {
     display: flex;
     overflow-x: hidden;
+}
 
-    &:hover .carousel-group {
-        animation-play-state: paused;
-    }
+.carousel:hover .carousel-group {
+    animation-play-state: paused;
 }
 
 .carousel-group {
